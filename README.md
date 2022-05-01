@@ -11,16 +11,17 @@
 
 ### 3. Запустите контейнер с nginx скачанным из docker hub. Контейнер должен быть запущен из командной строки с параметром -expose или -p для того чтобы после запуска стартовая страница nginx была доступна из браузера вашего компьютера.
 
-> `docker pull nginx` > `docker run -d -p 80:80 nginx`
+> `docker pull nginx` \
+> `docker run -d -p 80:80 nginx`
 
 ### 4. Запустите контейнер с MySQL скачанным из докер хаба, используйте --volume , -v при запуске контейнера для того чтобы сохранить базу данных жестком диске хоста.
 
 > `docker pull mysql` > `docker run \`\
 > `-d \`\
->  `-p 3306:3306 \`\
->  `-e MYSQL_ROOT_PASSWORD=12345 \`\
->  `-v /home/ralymbetov/Desktop/task_1_1/mysql_data:/var/lib/mysql \`\
->  `mysql:latest`
+> `-p 3306:3306 \`\
+> `-e MYSQL_ROOT_PASSWORD=12345 \`\
+> `-v /home/ralymbetov/Desktop/task_1_1/mysql_data:/var/lib/mysql \`\
+> `mysql:latest`
 
 ### 5. После запуска контейнера подключитесь к базе, создайте нового пользователя и новую базу.
 
