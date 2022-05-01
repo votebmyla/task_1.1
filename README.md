@@ -26,7 +26,7 @@
 
 ### 5. После запуска контейнера подключитесь к базе, создайте нового пользователя и новую базу.
 
-> `docker exec -it _{mysql_container_id_or_name}_ mysql -uroot -p12345` \
+> `docker exec -it {mysql_container_id_or_name} mysql -uroot -p12345` \
 
 - _#после этого запускается командная строка mysql_
 
@@ -45,26 +45,26 @@
 ### 2. Дополните Dockerfile инструкциями из которого при выполнении команды docker build соберется docker образ с установленным Ruby 2.7.2
 
 > `FROM ubuntu:20.04` \
->  `LABEL "base os-release"=ubuntu:20.04 ` \
->  `LABEL "ruby version"=2.7.2` \
+> `LABEL "base os-release"=ubuntu:20.04 ` \
+> `LABEL "ruby version"=2.7.2` \
 > `RUN apt-get update && \` \
->  `apt-get install -y \`\
->  `git \`\
->  `curl \`\
->  `autoconf \`\
->  `bison \`\
->  `build-essential \`\
->  `libssl-dev \`\
->  `libyaml-dev \`\
->  `libreadline6-dev \`\
->  `zlib1g-dev \`\
->  `libncurses5-dev \`\
->  `libffi-dev \`\
->  `libgdbm6 \`\
->  `libgdbm-dev \`\
->  `libdb-dev && \`\
->  `curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash` \
->  `RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \` \
+> `apt-get install -y \`\
+> `git \`\
+> `curl \`\
+> `autoconf \`\
+> `bison \`\
+> `build-essential \`\
+> `libssl-dev \`\
+> `libyaml-dev \`\
+> `libreadline6-dev \`\
+> `zlib1g-dev \`\
+> `libncurses5-dev \`\
+> `libffi-dev \`\
+> `libgdbm6 \`\
+> `libgdbm-dev \`\
+> `libdb-dev && \`\
+> `curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash` \
+> `RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \` \
 > `echo 'eval "$(rbenv init -)"' >> ~/.bashrc ` \
 > `RUN ~/.rbenv/bin/rbenv install 2.7.2 && \` \
 > `~/.rbenv/bin/rbenv global 2.7.2 ` \
