@@ -1,4 +1,6 @@
 FROM ubuntu:20.04
+LABEL "base os-release"=ubuntu:20.04
+LABEL "ruby version"=2.7.2
 RUN apt-get update && \
   apt-get install -y\
   git \
