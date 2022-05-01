@@ -14,9 +14,8 @@ RUN apt-get update && \
   libffi-dev \
   libgdbm6 \
   libgdbm-dev \
-  libdb-dev
-RUN curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
-RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc && \
-  echo 'eval "$(rbenv init -)"' >> ~/.zshrc \
-  source ~/.zshrc
-RUN rbenv install 2.7.2 && rbenv global 2.7.2
+  libdb-dev &&\
+  curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+RUN ~/.rbenv/bin/rbenv install 2.7.2 && ~/.rbenv/bin/rbenv global 2.7.2
+CMD ["/bin/bash", "ruby -v"]
