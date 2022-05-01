@@ -18,4 +18,4 @@ RUN apt-get update && \
   curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
 RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 RUN ~/.rbenv/bin/rbenv install 2.7.2 && ~/.rbenv/bin/rbenv global 2.7.2
-CMD ["/bin/bash", "ruby -v"]
+CMD ~/.rbenv/shims/ruby -v
