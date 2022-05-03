@@ -1,6 +1,15 @@
-version: "3.9"
+version: '3.9'
 services:
-  nginx-ws:
-    image: nginx
-    ports:
-      - 80:80
+  mysql:
+    image: mysql
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD: mysqlsecret
+      - MYSQL_DATABASE: wpdb
+      - MYSQL_USER: wpuser
+      - MYSQL_PASSWORD: wpusersecret
+    restart: always
+  wordpress:
+    image: wordpress
+    
