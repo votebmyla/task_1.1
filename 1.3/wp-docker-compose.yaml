@@ -1,14 +1,14 @@
-version: '3.9'
+version: '3'
 services:
   mysql:
     image: mysql
     volumes:
       - /data/mysql:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD: mysqlrootsecret
-      - MYSQL_DATABASE: wpdb
-      - MYSQL_USER: wpuser
-      - MYSQL_PASSWORD: wpusersecret
+      - MYSQL_ROOT_PASSWORD=mysqlrootsecret
+      - MYSQL_DATABASE=wpdb
+      - MYSQL_USER=wpuser
+      - MYSQL_PASSWORD=wpusersecret
     restart: always
   wordpress:
     image: wordpress:php7.4-fpm-alpine
@@ -17,12 +17,12 @@ services:
     depends_on:
       - mysql
     environment:
-      - WORDPRESS_DB_HOST: mysql
-      - MYSQL_ROOT_PASSWORD: mysqlrootsecret
-      - WORDPRESS_DB_NAME: wpdb
-      - WORDPRESS_DB_USER: wpuser
-      - WORDPRESS_DB_PASSWORD: wpusersecret
-      - WORDPRESS_TABLE_PREFIX: wp_
+      - WORDPRESS_DB_HOST=mysql
+      - MYSQL_ROOT_PASSWORD=mysqlrootsecret
+      - WORDPRESS_DB_NAME=wpdb
+      - WORDPRESS_DB_USER=wpuser
+      - WORDPRESS_DB_PASSWORD=wpusersecret
+      - WORDPRESS_TABLE_PREFIX=wp_
     links:
       - mysql
     restart: always 
@@ -35,4 +35,3 @@ services:
       - 8080:80
     links:
       - wordpress
-      
