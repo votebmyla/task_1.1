@@ -1,0 +1,35 @@
+version: '3.1'
+services:
+  mysql_host:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=myrootsecret
+      - MYSQL_DATABASE=mydb
+      - MYSQL_USER=myuser
+      - MYSQL_PASSWORD=myusersecret
+    restart: always
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+  wordpress_host:
+    image: wordpress:php7.4-fpm-alpine
+    environment:
+      - WORDPRESS_DB_HOST=mysql_host
+      - WORDPRESS_DB_NAME=mydb
+      - WORDPRESS_DB_USER=myuser
+      - WORDPRESS_DB_PASSWORD=myusersecret
+      - WORDPRESS_TABLE_PREFIX=wp_
+    volumes:
+      - ./data/html:/var/www/html
+    depends_on:
+      - mysql_host
+    links:
+      - mysql_host
+  nginx_host:
+    image: nginx:alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./data/html:/var/www/html
+      - ./data/nginx:/etc/nginx/conf.d
+    links:
+      - wordpress_host
