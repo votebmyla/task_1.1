@@ -81,3 +81,6 @@
 > `sudo apt install docker-compose -y`
 
 ### 2. С помощью docker-compose установите и запустите сайт на Wordpress. Помимо docker-compose.yml файла у вас могут быть другие файлы необходимые для работы Wordpress, например nginx.conf и другие.
+
+> `cd 1.3/` \
+> `docker-compose -f docker-compose.yml up`
