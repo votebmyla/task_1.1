@@ -84,3 +84,6 @@
 
 > `cd 1.3/` \
 > `docker-compose -f docker-compose.yml up`
+- _# копируем файлы `wordpress` в директорию `data/html`_ \
+- _# файлы БД сохраняются в директории `data/mysql`_ \
+- _# файл конфигурации `nginx` в директории `data/nginx`_
