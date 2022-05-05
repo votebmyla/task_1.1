@@ -26,7 +26,7 @@
 
 ### 5. После запуска контейнера подключитесь к базе, создайте нового пользователя и новую базу.
 
-> `docker exec -it {mysql_container_id_or_name} mysql -uroot -p12345` \
+> `docker exec -it {mysql_container_id_or_name} mysql -uroot -p12345` 
 
 - _#после этого запускается командная строка mysql_
 
@@ -84,6 +84,6 @@
 
 > `cd 1.3/` \
 > `docker-compose -f docker-compose.yml up`
-- _# копируем файлы `wordpress` в директорию `data/html`_ \
-- _# файлы БД сохраняются в директории `data/mysql`_ \
+- _# копируем файлы `wordpress` в директорию `data/html`_ 
+- _# файлы БД сохраняются в директории `data/mysql`_ 
 - _# файл конфигурации `nginx` в директории `data/nginx`_
